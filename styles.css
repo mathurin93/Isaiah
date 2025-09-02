@@ -1,0 +1,150 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fonts & Colors */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background: #0d0d2b;
+    /* deep navy-purple */
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 5rem 1rem;
+    background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff);
+    color: white;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInDown 1.2s ease-in-out;
+}
+
+.header p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Bio Section */
+.bio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 5rem 10%;
+    align-items: center;
+}
+
+.bio-img img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 0 25px rgba(255, 0, 110, 0.8);
+}
+
+.bio-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ff006e;
+}
+
+.bio-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    padding: 0.5rem 0;
+}
+
+/* Tickets Section */
+.ticket-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 5rem 10%;
+    align-items: center;
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    border-top: 5px solid #ff006e;
+}
+
+.ticket-flyer img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.ticket-details h2 {
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.ticket-details p,
+.ticket-details ul {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.ticket-details ul {
+    list-style: none;
+}
+
+.ticket-details li {
+    margin-bottom: 0.5rem;
+}
+
+.btn {
+    display: inline-block;
+    background: #ff006e;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+}
+
+.btn:hover {
+    background: #d90452;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: #111;
+    color: #aaa;
+    margin-top: 2rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+
+    .bio,
+    .ticket-info {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
