@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Isaiah Bedward-Hamilton's Drum Shed Concert</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
@@ -16,7 +17,6 @@
             line-height: 1.6;
         }
 
-        /* The main changes were made here to create the overlay effect */
         .modal {
             position: fixed;
             inset: 0;
@@ -26,7 +26,26 @@
             justify-content: center;
             background-color: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(8px);
-            /* This creates the blurred background effect */
+        }
+
+        /* CSS for the floating animation */
+        .profile-img img {
+            width: 25vw;
+            animation: floatImage 4s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-2.4rem);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -39,29 +58,28 @@
         <main class="w-full space-y-8">
 
             <!-- Isaiah's Profile & About Section -->
-            <div
+            <div id="profile-section"
                 class="bg-[#242526] p-8 rounded-3xl shadow-lg flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
                 <!-- Placeholder for Isaiah's image -->
-                <div class="flex-shrink-0">
+                <div class="profile-img flex-shrink-0">
                     <img src="Images/Isaiah.jpeg" alt="Isaiah Bedward-Hamilton"
                         class="w-52 h-65 object-cover rounded-3xl border-4 border-red-500">
                 </div>
 
-                <div class="flex flex-col text-center md:text-left">
+                <div class="profile-content flex flex-col text-center md:text-left">
                     <h1 class="text-4xl sm:text-5xl font-extrabold text-[#f5f5f5] mb-1">
                         Isaiah Bedward-Hamilton
                     </h1>
                     <p class="text-xl font-bold text-red-500 mb-4">
                         DRUM SHED CONCERT
                     </p>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 py-2">
                         Hello Friends & Supporters,
                     </p>
-                    <p class="mt-2 text-gray-300">
-                        My name is Isaiah Bedward-Hamilton, and as I celebrate turning 16, I’m excited to invite you to
-                        a special evening filled with rhythm, passion, and music that glorifies God. A portion of the
-                        proceeds will also help fund free drum lessons for a child in need, giving them the chance to
-                        discover their own rhythm and purpose through music. <button onclick="toggleEtransfer()"
+                    <!-- This span will be targeted by Typed.js to create the typing effect -->
+                    <p class="mt-2 text-gray-300 py-2">
+                        <span class="multiple-text2"></span>
+                        <button onclick="toggleEtransfer()"
                             class="ml-2 inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-bold rounded-full hover:bg-white hover:text-red-600 transition-colors duration-300 transform hover:scale-105 shadow-md">
                             Get Tickets
                         </button>
@@ -92,7 +110,7 @@
                             </svg>
                             <div>
                                 <span class="font-semibold text-[#f5f5f5]">Send e-transfer to:</span>
-                                <p class="text-md">isaiahbedwardhamilton@gmail.com</p>
+                                <p class="text-md py-1">isaiahbedwardhamilton@gmail.com</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -105,7 +123,7 @@
                             </svg>
                             <div>
                                 <span class="font-semibold text-[#f5f5f5]">Adult Amount:</span>
-                                <p class="text-md">$25.00</p>
+                                <p class="text-md py-1">$25.00</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -113,12 +131,12 @@
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-ticket text-red-500 flex-shrink-0 mt-1">
                                 <path
-                                    d="M2 9a3 3 0 0 1 0 6v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1v1a1 1 0 0 1-1-1v-1a3 3 0 0 1 0-6v1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1-1v-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1-1-1z" />
+                                    d="M2 9a3 3 0 0 1 0 6v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1v1a1 1 0 0 1-1-1v-1a3 3 0 0 1 0-6v1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1-1v-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1-1-1z" />
                             </svg>
                             <div>
                                 <span class="font-semibold text-[#f5f5f5]">Youth & Child Tickets:</span>
-                                <p class="text-md">Youth (12-17): $15.00</p>
-                                <p class="text-md">11 & Under: FREE</p>
+                                <p class="text-md py-1">Youth (12-17): $15.00</p>
+                                <p class="text-md py-1">11 & Under: FREE</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -132,7 +150,7 @@
                             </svg>
                             <div>
                                 <span class="font-semibold text-[#f5f5f5]">Security Question:</span>
-                                <p class="text-md">What is the concert name?</p>
+                                <p class="text-md py-1">What is the concert name?</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -146,7 +164,7 @@
                             </svg>
                             <div>
                                 <span class="font-semibold text-[#f5f5f5]">Answer:</span>
-                                <p class="text-md">DrumShed</p>
+                                <p class="text-md py-1">DrumShed</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -159,7 +177,7 @@
                             </svg>
                             <div>
                                 <span class="font-semibold text-[#f5f5f5]">Confirmation:</span>
-                                <p class="text-md">Once sent, please email us to confirm your ticket.</p>
+                                <p class="text-md py-1">Once sent, please email us to confirm your ticket.</p>
                             </div>
                         </div>
                     </div>
@@ -167,7 +185,7 @@
             </div>
 
             <!-- Official Flyer Section -->
-            <div class="bg-[#242526] p-8 rounded-3xl shadow-lg">
+            <div id="flyer-section" class="bg-[#242526] p-8 rounded-3xl shadow-lg">
                 <h2 class="text-2xl sm:text-3xl font-bold text-[#f5f5f5] mb-6 border-b-2 border-red-500 pb-2">
                     <span class="text-red-500">Official</span> Flyer
                 </h2>
@@ -178,7 +196,7 @@
             </div>
 
             <!-- Event Details -->
-            <div class="bg-[#242526] p-8 rounded-3xl shadow-lg">
+            <div id="details-section" class="bg-[#242526] p-8 rounded-3xl shadow-lg">
                 <h2 class="text-2xl sm:text-3xl font-bold text-[#f5f5f5] mb-6 border-b-2 border-red-500 pb-2">
                     <span class="text-red-500">Event</span> Details
                 </h2>
@@ -194,7 +212,7 @@
                         </svg>
                         <div>
                             <span class="font-semibold text-[#f5f5f5] text-lg">Date:</span>
-                            <p class="text-md">October 31st</p>
+                            <p class="text-md py-1">October 31st</p>
                         </div>
                     </div>
                     <div class="flex items-center space-x-4">
@@ -206,7 +224,7 @@
                         </svg>
                         <div>
                             <span class="font-semibold text-[#f5f5f5] text-lg">Time:</span>
-                            <p class="text-md">7:00 PM</p>
+                            <p class="text-md py-1">7:00 PM</p>
                         </div>
                     </div>
                     <div class="flex items-center space-x-4">
@@ -218,7 +236,7 @@
                         </svg>
                         <div>
                             <span class="font-semibold text-[#f5f5f5] text-lg">Location:</span>
-                            <p class="text-md">6 Westwyn Court, Brampton</p>
+                            <p class="text-md py-1">6 Westwyn Court, Brampton</p>
                         </div>
                     </div>
                     <div class="flex items-center space-x-4">
@@ -226,21 +244,22 @@
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-ticket text-red-500 flex-shrink-0">
                             <path
-                                d="M2 9a3 3 0 0 1 0 6v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1v1a1 1 0 0 1-1-1v-1a3 3 0 0 1 0-6v1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1-1v-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1-1-1z" />
+                                d="M2 9a3 3 0 0 1 0 6v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1v1a1 1 0 0 1-1-1v-1a3 3 0 0 1 0-6v1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1-1v-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1-1-1z" />
                         </svg>
                         <div>
                             <span class="font-semibold text-[#f5f5f5] text-lg">Tickets:</span>
-                            <p class="text-md">Adult: <span class="font-bold text-red-500">$25</span></p>
-                            <p class="text-md">Youth (12-17): <span class="font-bold text-red-500">$15</span></p>
-                            <p class="text-md">11 & Under: <span class="font-bold text-red-500">FREE</span></p>
-
+                            <div class="space-y-1">
+                                <p class="text-md">Adult: <span class="font-bold text-red-500">$25</span></p>
+                                <p class="text-md">Youth (12-17): <span class="font-bold text-red-500">$15</span></p>
+                                <p class="text-md">11 & Under: <span class="font-bold text-red-500">FREE</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Guest Artists -->
-            <div class="bg-[#242526] p-8 rounded-3xl shadow-lg">
+            <div id="artists-section" class="bg-[#242526] p-8 rounded-3xl shadow-lg">
                 <h2 class="text-2xl sm:text-3xl font-bold text-[#f5f5f5] mb-6 border-b-2 border-red-500 pb-2">
                     <span class="text-red-500">Guest</span> Artists
                 </h2>
@@ -254,11 +273,13 @@
             </div>
 
             <!-- How to Get Ticket Section -->
-            <div class="bg-[#242526] p-8 rounded-3xl shadow-lg">
+            <div id="tickets-section" class="bg-[#242526] p-8 rounded-3xl shadow-lg">
                 <h2 class="text-2xl sm:text-3xl font-bold text-[#f5f5f5] mb-6 border-b-2 border-red-500 pb-2">
                     <span class="text-red-500">How to</span> Get Your Ticket
                 </h2>
-                <p class="text-gray-300 text-lg mb-4">Secure your spot for Adult: <span class="font-bold text-red-500">$25</span>, Youth
+                <p class="text-gray-300 text-lg mb-4 py-2">Secure your spot for Adult: <span
+                        class="font-bold text-red-500">$25</span>,
+                    Youth
                     (12-17): <span class="font-bold text-red-500">$15</span> and Children Under 11: <span
                         class="font-bold text-red-500">FREE</span></p>
 
@@ -272,7 +293,8 @@
                         </svg>
                         <div>
                             <span class="font-semibold text-[#f5f5f5] text-lg">Send payment via e-transfer:</span>
-                            <p class="text-md">to: <span class="font-bold text-[#f5f5f5]">isaiahbedwardhamilton@gmail.com</span></p>
+                            <p class="text-md py-1">to: <span
+                                    class="font-bold text-[#f5f5f5]">isaiahbedwardhamilton@gmail.com</span></p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-4">
@@ -285,7 +307,7 @@
                         </svg>
                         <div>
                             <span class="font-semibold text-[#f5f5f5] text-lg">Add a note for confirmation:</span>
-                            <p class="text-md">Include your name and event date in the transfer notes.</p>
+                            <p class="text-md py-1">Include your name and event date in the transfer notes.</p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-4">
@@ -299,12 +321,11 @@
                         </svg>
                         <div>
                             <span class="font-semibold text-[#f5f5f5] text-lg">Bring a friend!</span>
-                            <p class="text-md">Tickets will also be available at the door.</p>
+                            <p class="text-md py-1">Tickets will also be available at the door.</p>
                         </div>
                     </div>
                 </div>
             </div>
-
 
         </main>
 
@@ -343,6 +364,7 @@
         </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
         // This function is what makes the pop-up appear and disappear.
         // It toggles the 'hidden' class on the modal div.
@@ -352,6 +374,44 @@
                 modal.classList.toggle('hidden');
             }
         }
+
+        // This script handles the Typed.js effect
+        const typed = new Typed('.multiple-text2', {
+            strings: ["My name is Isaiah Bedward-Hamilton, and as I celebrate turning 16, I’m excited to invite you to a special evening filled with rhythm, passion, and music that glorifies God. A portion of the proceeds will also help fund free drum lessons for a child in need, giving them the chance to discover their own rhythm and purpose through music."],
+            typeSpeed: 60,
+            backSpeed: 300,
+            backDelay: 4000,
+            loop: true
+        });
+
+        // This script handles the ScrollReveal effect
+        // Initialize ScrollReveal with a default configuration
+        ScrollReveal({
+            distance: '80px',
+            duration: 2000,
+            delay: 200
+        });
+
+        // Apply reveal animations to different sections of the page
+        // Reveal elements from the top
+        ScrollReveal().reveal('.heading', {
+            origin: 'top'
+        });
+
+        // Reveal elements from the bottom
+        ScrollReveal().reveal('#profile-section, #flyer-section, #details-section, #artists-section, #tickets-section', {
+            origin: 'bottom'
+        });
+
+        // Reveal the profile image from the left
+        ScrollReveal().reveal('.profile-img', {
+            origin: 'left'
+        });
+
+        // Reveal the profile text content from the right
+        ScrollReveal().reveal('.profile-content', {
+            origin: 'right'
+        });
     </script>
 </body>
 
