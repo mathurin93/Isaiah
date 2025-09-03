@@ -15,6 +15,19 @@
             color: #c5c6c7;
             line-height: 1.6;
         }
+
+        /* The main changes were made here to create the overlay effect */
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            /* This creates the blurred background effect */
+        }
     </style>
 </head>
 
@@ -46,12 +59,110 @@
                     </p>
                     <p class="mt-2 text-gray-300">
                         My name is Isaiah Bedward-Hamilton, and as I celebrate turning 16, I’m excited to invite you to
-                        a special evening filled with rhythm, passion, and music that glorifies God. By scanning the
-                        flyer’s QR code, you’ve landed here — the place to join me for an unforgettable concert
-                        showcasing my journey as a drummer, alongside some of the most talented artists. A portion of
-                        the proceeds will also help fund free drum lessons for a child in need, giving them the chance
-                        to discover their own rhythm and purpose through music.
+                        a special evening filled with rhythm, passion, and music that glorifies God. A portion of the
+                        proceeds will also help fund free drum lessons for a child in need, giving them the chance to
+                        discover their own rhythm and purpose through music. <button onclick="toggleEtransfer()"
+                            class="ml-2 inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-bold rounded-full hover:bg-white hover:text-red-600 transition-colors duration-300 transform hover:scale-105 shadow-md">
+                            Get Tickets
+                        </button>
                     </p>
+                </div>
+            </div>
+
+            <!-- E-Transfer Modal -->
+            <div id="etransfer-modal" class="hidden modal">
+                <div class="bg-[#242526] p-8 rounded-3xl shadow-2xl border border-red-500 max-w-md w-full relative">
+                    <button onclick="toggleEtransfer()"
+                        class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-x">
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
+                    </button>
+                    <h3 class="text-2xl font-bold text-red-500 mb-4">E-Transfer Information</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <div class="flex items-start space-x-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-mail text-red-500 flex-shrink-0 mt-1">
+                                <rect width="20" height="16" x="2" y="4" rx="2" />
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                            </svg>
+                            <div>
+                                <span class="font-semibold text-[#f5f5f5]">Send e-transfer to:</span>
+                                <p class="text-md">isaiahbedwardhamilton@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-dollar-sign text-red-500 flex-shrink-0 mt-1">
+                                <line x1="12" x2="12" y1="2" y2="22" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                            <div>
+                                <span class="font-semibold text-[#f5f5f5]">Adult Amount:</span>
+                                <p class="text-md">$25.00</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-ticket text-red-500 flex-shrink-0 mt-1">
+                                <path
+                                    d="M2 9a3 3 0 0 1 0 6v-1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1v1a1 1 0 0 1-1-1v-1a3 3 0 0 1 0-6v1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1 1h1a1 1 0 0 1 1-1v-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1h-1a1 1 0 0 1-1-1v-1a1 1 0 0 1-1-1z" />
+                            </svg>
+                            <div>
+                                <span class="font-semibold text-[#f5f5f5]">Youth & Child Tickets:</span>
+                                <p class="text-md">Youth (12-17): $15.00</p>
+                                <p class="text-md">11 & Under: FREE</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-help-circle text-red-500 flex-shrink-0 mt-1">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                <path d="M12 17h.01" />
+                            </svg>
+                            <div>
+                                <span class="font-semibold text-[#f5f5f5]">Security Question:</span>
+                                <p class="text-md">What is the concert name?</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-key text-red-500 flex-shrink-0 mt-1">
+                                <path
+                                    d="m21.79 16.51-1.39-1.38a.91.91 0 0 0-1.07-.15l-3.66-1.51a2 2 0 0 0-2.45.65l-2.45 2.44a2 2 0 0 1-2.45.65L2 19.98a.9.9 0 0 1-1.28-1.28l1.7-1.7a.9.9 0 0 0 .15-1.07l-1.5-3.66a2 2 0 0 1 .65-2.45l2.44-2.44a2 2 0 0 0 .65-2.45L11.5 2.21a.9.9 0 0 1 1.07-.15l1.38 1.39" />
+                                <circle cx="16.5" cy="7.5" r="1.5" />
+                                <path d="m18 13-1-1v-2l1-1h1.5a2 2 0 0 1 2 2v1.5a2 2 0 0 1-2 2H18z" />
+                            </svg>
+                            <div>
+                                <span class="font-semibold text-[#f5f5f5]">Answer:</span>
+                                <p class="text-md">DrumShed</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-check-circle-2 text-red-500 flex-shrink-0 mt-1">
+                                <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
+                                <path d="m9 12 2 2 4-4" />
+                            </svg>
+                            <div>
+                                <span class="font-semibold text-[#f5f5f5]">Confirmation:</span>
+                                <p class="text-md">Once sent, please email us to confirm your ticket.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -61,8 +172,7 @@
                     <span class="text-red-500">Official</span> Flyer
                 </h2>
                 <div class="w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg">
-                    <img src="Images/Flyer.jpeg"
-                        alt="Promotional flyer for the Drum Shed Concert"
+                    <img src="Images/Flyer.jpeg" alt="Promotional flyer for the Drum Shed Concert"
                         class="w-full h-auto object-cover border-2 border-[#f5f5f5] rounded-xl">
                 </div>
             </div>
@@ -120,7 +230,10 @@
                         </svg>
                         <div>
                             <span class="font-semibold text-[#f5f5f5] text-lg">Tickets:</span>
-                            <p class="text-md font-bold text-red-500">$25</p>
+                            <p class="text-md">Adult: <span class="font-bold text-red-500">$25</span></p>
+                            <p class="text-md">Youth (12-17): <span class="font-bold text-red-500">$15</span></p>
+                            <p class="text-md">11 & Under: <span class="font-bold text-red-500">FREE</span></p>
+
                         </div>
                     </div>
                 </div>
@@ -145,8 +258,10 @@
                 <h2 class="text-2xl sm:text-3xl font-bold text-[#f5f5f5] mb-6 border-b-2 border-red-500 pb-2">
                     <span class="text-red-500">How to</span> Get Your Ticket
                 </h2>
-                <p class="text-gray-300 text-lg mb-4">Secure your spot for <span
-                        class="font-bold text-red-500">$25</span>.</p>
+                <p class="text-gray-300 text-lg mb-4">Secure your spot for Adult: <span class="font-bold text-red-500">$25</span>, Youth
+                    (12-17): <span class="font-bold text-red-500">$15</span> and Children Under 11: <span
+                        class="font-bold text-red-500">FREE</span></p>
+
                 <div class="space-y-4 text-gray-300">
                     <div class="flex items-start space-x-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -157,8 +272,7 @@
                         </svg>
                         <div>
                             <span class="font-semibold text-[#f5f5f5] text-lg">Send payment via e-transfer:</span>
-                            <p class="text-md">to: <span
-                                    class="font-bold text-[#f5f5f5]">isaiahbedwardhamilton@gmail.com</span></p>
+                            <p class="text-md">to: <span class="font-bold text-[#f5f5f5]">isaiahbedwardhamilton@gmail.com</span></p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-4">
@@ -190,6 +304,7 @@
                     </div>
                 </div>
             </div>
+
 
         </main>
 
@@ -226,9 +341,18 @@
                 </a>
             </div>
         </footer>
-
     </div>
 
+    <script>
+        // This function is what makes the pop-up appear and disappear.
+        // It toggles the 'hidden' class on the modal div.
+        function toggleEtransfer() {
+            const modal = document.getElementById('etransfer-modal');
+            if (modal) {
+                modal.classList.toggle('hidden');
+            }
+        }
+    </script>
 </body>
 
 </html>
