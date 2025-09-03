@@ -28,10 +28,10 @@
             backdrop-filter: blur(8px);
         }
 
-        /* CSS for the floating animation */
+        /* CSS for the floating animation and image size */
         .profile-img img {
-            width: 25vw;
-            animation: floatImage 4s ease-in-out infinite;
+            width: 55vw;
+            /* New: Larger image size for mobile */
         }
 
         @keyframes floatImage {
@@ -45,6 +45,14 @@
 
             100% {
                 transform: translateY(0);
+            }
+        }
+
+        /* Re-enable animation and set original size for larger screens */
+        @media (min-width: 768px) {
+            .profile-img img {
+                width: 25vw;
+                animation: floatImage 4s ease-in-out infinite;
             }
         }
     </style>
