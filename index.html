@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Isaiah Bedward-Hamilton's Drum Shed Concert</title>
+    <link rel="stylesheet" href="styles.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <style>
@@ -82,21 +84,22 @@
         }
 
         @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-        }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-        .animate-scroll {
-            animation: scroll 10s linear infinite;
-        }
+/* Disable animation by default (mobile) */
+.animate-scroll {
+  animation: none;
+}
 
-        /* Default: Mobile speed (15s) */
-        /* Desktop: Override to 20s */
-        @media (min-width: 768px) {
-            .animate-scroll {
-                animation-duration: 25s;
+/* Enable animation on desktop */
+@media (min-width: 768px) {
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
   }
 }
+
 
 
         /* The animation now moves exactly one full set of images */
@@ -351,71 +354,116 @@
                     <span class="text-red-500">Guest</span> Artists
                 </h2>
             
-                <!-- Updated: Looping image gallery with larger images and tighter spacing -->
-                <div class="slider-container overflow-hidden">
-                    <div class="slider flex gap-x-4 animate-scroll">
-                        <!-- Artist: Jonathan Kerr -->
-                        <div class="slider-item">
-                            <div
-                                class="flex flex-col items-center space-y-2 transform transition-transform duration 300 hover:scale-105">
-                                <div class="relative w-80 h-60">
+                <!-- Marquee slider -->
+                <div class="relative overflow-x-auto sm:overflow-hidden rounded-2xl">
+                    <div id="artist-track" class="flex gap-4 w-max will-change-transform touch-pan-x scroll-smooth">
+            
+                        <!-- Cycle 1 -->
+                        <article class="flex-shrink-0 scroll-snap-align-start">
+                            <div class="flex flex-col items-center space-y-2">
+                                <div class="relative w-72 sm:w-80 h-52 sm:h-60">
                                     <img src="Images/Jonathan Kerr.jpg" alt="Jonathan Kerr"
                                         class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
                                 </div>
                                 <p class="font-semibold text-[#f5f5f5] text-lg">Jonathan Kerr</p>
                             </div>
-                        </div>
+                        </article>
             
-                        <!-- Artist: Adrian Bent -->
-                        <div class="slider-item">
-                            <div
-                                class="flex flex-col items-center space-y-2 transform transition-transform duration-300 hover:scale-105">
-                                <div class="relative w-80 h-60">
+                        <article class="flex-shrink-0 scroll-snap-align-start">
+                            <div class="flex flex-col items-center space-y-2">
+                                <div class="relative w-72 sm:w-80 h-52 sm:h-60">
                                     <img src="Images/Adrian Bent.jpg" alt="Adrian Bent"
                                         class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
                                 </div>
                                 <p class="font-semibold text-[#f5f5f5] text-lg">Adrian Bent</p>
                             </div>
-                        </div>
+                        </article>
             
-                        <!-- Artist: Chris Blair -->
-                        <div class="slider-item">
-                            <div
-                                class="flex flex-col items-center space-y-2 transform transition-transform duration-300 hover:scale-105">
-                                <div class="relative w-80 h-60">
+                        <article class="flex-shrink-0 scroll-snap-align-start">
+                            <div class="flex flex-col items-center space-y-2">
+                                <div class="relative w-72 sm:w-80 h-52 sm:h-60">
                                     <img src="Images/Chris Blair.jpg" alt="Chris Blair"
                                         class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
                                 </div>
                                 <p class="font-semibold text-[#f5f5f5] text-lg">Chris Blair</p>
                             </div>
-                        </div>
+                        </article>
             
-                        <!-- Artist: Larnell Lewis -->
-                        <div class="slider-item">
-                            <div
-                                class="flex flex-col items-center space-y-2 transform transition-transform duration-300 hover:scale-105">
-                                <div class="relative w-80 h-60">
+                        <article class="flex-shrink-0 scroll-snap-align-start">
+                            <div class="flex flex-col items-center space-y-2">
+                                <div class="relative w-72 sm:w-80 h-52 sm:h-60">
                                     <img src="Images/Larnell Lewis.jpg" alt="Larnell Lewis"
                                         class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
                                 </div>
                                 <p class="font-semibold text-[#f5f5f5] text-lg">Larnell Lewis</p>
                             </div>
-                        </div>
+                        </article>
             
-                        <!-- Artist: Next Gen Community Choir -->
-                        <div class="slider-item">
-                            <div
-                                class="flex flex-col items-center space-y-2 transform transition-transform duration-300 hover:scale-105">
-                                <div class="relative w-80 h-60">
+                        <article class="flex-shrink-0 scroll-snap-align-start">
+                            <div class="flex flex-col items-center space-y-2">
+                                <div class="relative w-72 sm:w-80 h-52 sm:h-60">
                                     <img src="Images/Choir.jpg" alt="Next Gen Community Choir"
                                         class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
                                 </div>
                                 <p class="font-semibold text-[#f5f5f5] text-lg">Next Gen Community Choir</p>
                             </div>
-                        </div>
+                        </article>
+            
+                        <!-- Cycle 2 (duplicate for seamless loop) -->
+                        <article class="flex-shrink-0 scroll-snap-align-start">
+                            <div class="flex flex-col items-center space-y-2">
+                                <div class="relative w-72 sm:w-80 h-52 sm:h-60">
+                                    <img src="Images/Jonathan Kerr.jpg" alt="Jonathan Kerr (duplicate)"
+                                        class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
+                                </div>
+                                <p class="font-semibold text-[#f5f5f5] text-lg">Jonathan Kerr</p>
+                            </div>
+                        </article>
+            
+                        <article class="flex-shrink-0 scroll-snap-align-start">
+                            <div class="flex flex-col items-center space-y-2">
+                                <div class="relative w-72 sm:w-80 h-52 sm:h-60">
+                                    <img src="Images/Adrian Bent.jpg" alt="Adrian Bent (duplicate)"
+                                        class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
+                                </div>
+                                <p class="font-semibold text-[#f5f5f5] text-lg">Adrian Bent</p>
+                            </div>
+                        </article>
+            
+                        <article class="flex-shrink-0 scroll-snap-align-start">
+                            <div class="flex flex-col items-center space-y-2">
+                                <div class="relative w-72 sm:w-80 h-52 sm:h-60">
+                                    <img src="Images/Chris Blair.jpg" alt="Chris Blair (duplicate)"
+                                        class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
+                                </div>
+                                <p class="font-semibold text-[#f5f5f5] text-lg">Chris Blair</p>
+                            </div>
+                        </article>
+            
+                        <article class="flex-shrink-0 scroll-snap-align-start">
+                            <div class="flex flex-col items-center space-y-2">
+                                <div class="relative w-72 sm:w-80 h-52 sm:h-60">
+                                    <img src="Images/Larnell Lewis.jpg" alt="Larnell Lewis (duplicate)"
+                                        class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
+                                </div>
+                                <p class="font-semibold text-[#f5f5f5] text-lg">Larnell Lewis</p>
+                            </div>
+                        </article>
+            
+                        <article class="flex-shrink-0 scroll-snap-align-start">
+                            <div class="flex flex-col items-center space-y-2">
+                                <div class="relative w-72 sm:w-80 h-52 sm:h-60">
+                                    <img src="Images/Choir.jpg" alt="Next Gen Community Choir (duplicate)"
+                                        class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
+                                </div>
+                                <p class="font-semibold text-[#f5f5f5] text-lg">Next Gen Community Choir</p>
+                            </div>
+                        </article>
+            
                     </div>
                 </div>
             </div>
+
 
 
             <!-- How to Get Ticket Section -->
@@ -562,6 +610,77 @@
         ScrollReveal().reveal('.profile-content', {
             origin: 'right'
         });
+
+    (() => {
+        const track = document.getElementById('artist-track');
+        if (!track) return;
+
+        const totalCards = track.children.length;
+        const half = Math.floor(totalCards / 2);
+
+        function computeCycleWidth() {
+            let w = 0;
+            const gap = parseFloat(getComputedStyle(track).gap || 0);
+            for (let i = 0; i < half; i++) {
+                const el = track.children[i];
+                const rect = el.getBoundingClientRect();
+                w += rect.width;
+                if (i < half - 1) w += gap;
+            }
+            return w;
+        }
+
+        let baseWidth = 0;
+        let offset = 0;
+        let rafId = null;
+
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const desktop = () => window.matchMedia('(min-width: 768px)').matches;
+
+        function speedPxPerFrame() {
+            return desktop() ? 0.35 : 0.6;
+        }
+
+        function step() {
+            offset -= speedPxPerFrame();
+            if (-offset >= baseWidth) {
+                offset += baseWidth;
+            }
+            track.style.transform = `translateX(${offset}px)`;
+            rafId = requestAnimationFrame(step);
+        }
+
+        function start() {
+            if (prefersReduced) return;
+            if (rafId) cancelAnimationFrame(rafId);
+            offset = 0;
+            track.style.transform = 'translateX(0px)';
+            baseWidth = computeCycleWidth();
+            rafId = requestAnimationFrame(step);
+        }
+
+        function stop() {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+
+        const container = track.parentElement;
+        container.addEventListener('pointerenter', stop);
+        container.addEventListener('pointerleave', start);
+        container.addEventListener('pointerdown', stop);
+        container.addEventListener('pointerup', start);
+        container.addEventListener('pointercancel', start);
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(start, 150);
+        });
+
+        start();
+    })();
+
+
     </script>
 </body>
 
