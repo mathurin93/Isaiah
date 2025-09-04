@@ -30,7 +30,7 @@
 
         /* CSS for the floating animation and image size */
         .profile-img img {
-            width: 55vw;
+            width: 50vw;
             /* New: Larger image size for mobile */
         }
 
@@ -40,7 +40,7 @@
             }
 
             50% {
-                transform: translateY(1.5rem);
+                transform: translateY(-2.4rem);
             }
 
             100% {
@@ -51,8 +51,77 @@
         /* Re-enable animation and set original size for larger screens */
         @media (min-width: 768px) {
             .profile-img img {
-                width: 25vw;
+                width: 35vw;
                 animation: floatImage 4s ease-in-out infinite;
+            }
+        }
+
+        /* --- New CSS for the looping image gallery --- */
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            width: 200%;
+            /* Total width is double the container to hold two sets of images */
+            animation: slideAnimation 30s linear infinite;
+        }
+
+        .slider:hover {
+            animation-play-state: paused;
+        }
+
+        .slider-item {
+            min-width: 20%;
+            /* Show 5 images at a time (100% / 5) */
+            flex-shrink: 0;
+            margin: 0 0.25%;
+            /* Small responsive gap between images */
+        }
+
+        @keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 25s linear infinite;
+}
+
+
+        /* The animation now moves exactly one full set of images */
+        @keyframes slideAnimation {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+                /* Moves half the slider's width, which is the full width of one set of images */
+            }
+        }
+
+        /* Responsive adjustments for the slider */
+        @media (max-width: 1024px) {
+            .slider-item {
+                min-width: 25%;
+                /* Show 4 images on smaller desktops */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slider-item {
+                min-width: 33.33%;
+                /* Show 3 images on tablets */
+            }
+        }
+
+        @media (max-width: 640px) {
+            .slider-item {
+                min-width: 50%;
+                /* Show 2 images on mobile */
             }
         }
     </style>
@@ -70,8 +139,10 @@
                 class="bg-[#242526] p-8 rounded-3xl shadow-lg flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
                 <!-- Placeholder for Isaiah's image -->
                 <div class="profile-img flex-shrink-0">
-                    <img src="Images/Isaiah.jpeg" alt="Isaiah Bedward-Hamilton"
-                        class="w-52 h-65 object-cover rounded-3xl border-4 border-red-500">
+                    <a href="https://instagram.com/isaiahbedwardhamilton" target="_blank" rel="noopener noreferrer">
+                        <img src="Images/Isaiah.jpeg" alt="Isaiah Bedward-Hamilton"
+                            class="w-52 h-65 object-cover rounded-3xl border-4 border-red-500">
+                    </a>
                 </div>
 
                 <div class="profile-content flex flex-col text-center md:text-left">
@@ -271,14 +342,73 @@
                 <h2 class="text-2xl sm:text-3xl font-bold text-[#f5f5f5] mb-6 border-b-2 border-red-500 pb-2">
                     <span class="text-red-500">Guest</span> Artists
                 </h2>
-                <ul class="list-disc list-inside text-gray-300 space-y-2 text-lg">
-                    <li><span class="font-semibold text-[#f5f5f5]">Jonathan Kerr</span></li>
-                    <li><span class="font-semibold text-[#f5f5f5]">Adrian Bent</span></li>
-                    <li><span class="font-semibold text-[#f5f5f5]">Chris Blair</span></li>
-                    <li><span class="font-semibold text-[#f5f5f5]">Larnell Lewis</span></li>
-                    <li><span class="font-semibold text-[#f5f5f5]">Next Gen Community Choir</span></li>
-                </ul>
+            
+                <!-- Updated: Looping image gallery with larger images and tighter spacing -->
+                <div class="slider-container overflow-hidden">
+                    <div class="slider flex gap-x-4 animate-scroll">
+                        <!-- Artist: Jonathan Kerr -->
+                        <div class="slider-item">
+                            <div
+                                class="flex flex-col items-center space-y-2 transform transition-transform duration 300 hover:scale-105">
+                                <div class="relative w-80 h-60">
+                                    <img src="Images/Jonathan Kerr.jpg" alt="Jonathan Kerr"
+                                        class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
+                                </div>
+                                <p class="font-semibold text-[#f5f5f5] text-lg">Jonathan Kerr</p>
+                            </div>
+                        </div>
+            
+                        <!-- Artist: Adrian Bent -->
+                        <div class="slider-item">
+                            <div
+                                class="flex flex-col items-center space-y-2 transform transition-transform duration-300 hover:scale-105">
+                                <div class="relative w-80 h-60">
+                                    <img src="Images/Adrian Bent.jpg" alt="Adrian Bent"
+                                        class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
+                                </div>
+                                <p class="font-semibold text-[#f5f5f5] text-lg">Adrian Bent</p>
+                            </div>
+                        </div>
+            
+                        <!-- Artist: Chris Blair -->
+                        <div class="slider-item">
+                            <div
+                                class="flex flex-col items-center space-y-2 transform transition-transform duration-300 hover:scale-105">
+                                <div class="relative w-80 h-60">
+                                    <img src="Images/Chris Blair.jpg" alt="Chris Blair"
+                                        class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
+                                </div>
+                                <p class="font-semibold text-[#f5f5f5] text-lg">Chris Blair</p>
+                            </div>
+                        </div>
+            
+                        <!-- Artist: Larnell Lewis -->
+                        <div class="slider-item">
+                            <div
+                                class="flex flex-col items-center space-y-2 transform transition-transform duration-300 hover:scale-105">
+                                <div class="relative w-80 h-60">
+                                    <img src="Images/Larnell Lewis.jpg" alt="Larnell Lewis"
+                                        class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
+                                </div>
+                                <p class="font-semibold text-[#f5f5f5] text-lg">Larnell Lewis</p>
+                            </div>
+                        </div>
+            
+                        <!-- Artist: Next Gen Community Choir -->
+                        <div class="slider-item">
+                            <div
+                                class="flex flex-col items-center space-y-2 transform transition-transform duration-300 hover:scale-105">
+                                <div class="relative w-80 h-60">
+                                    <img src="Images/Choir.jpg" alt="Next Gen Community Choir"
+                                        class="w-full h-full object-cover rounded-3xl border-4 border-red-500">
+                                </div>
+                                <p class="font-semibold text-[#f5f5f5] text-lg">Next Gen Community Choir</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
 
             <!-- How to Get Ticket Section -->
             <div id="tickets-section" class="bg-[#242526] p-8 rounded-3xl shadow-lg">
@@ -290,7 +420,7 @@
                     Youth
                     (12-17): <span class="font-bold text-red-500">$15</span> and Children Under 11: <span
                         class="font-bold text-red-500">FREE</span></p>
-
+            
                 <div class="space-y-4 text-gray-300">
                     <div class="flex items-start space-x-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -334,6 +464,10 @@
                     </div>
                 </div>
             </div>
+
+            </div>
+
+            
 
         </main>
 
@@ -407,7 +541,7 @@
         });
 
         // Reveal elements from the bottom
-        ScrollReveal().reveal('#profile-section, #flyer-section, #details-section, #artists-section, #tickets-section', {
+        ScrollReveal().reveal('#profile-section, #flyer-section, #details-section, #tickets-section', {
             origin: 'bottom'
         });
 
