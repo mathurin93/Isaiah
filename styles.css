@@ -31,3 +31,35 @@
 .scroll-snap-align-start {
     scroll-snap-align: start;
 }
+
+
+
+/* Fade edges for Live Band (smaller fade like Guest Artists) */
+#artists-band .relative::before,
+#artists-band .relative::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 24px;
+    /* same subtle fade */
+    pointer-events: none;
+    z-index: 10;
+}
+
+#artists-band .relative::before {
+    left: 0;
+    background: linear-gradient(to right, #242526, rgba(36, 37, 38, 0));
+}
+
+#artists-band .relative::after {
+    right: 0;
+    background: linear-gradient(to left, #242526, rgba(36, 37, 38, 0));
+}
+
+/* Scroll snapping for Live Band */
+#artist-live {
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    touch-action: pan-x;
+}
